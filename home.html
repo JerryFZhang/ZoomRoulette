@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./zoom-icon.png">
+
+    <title>Zoom Roulette</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./asset/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./asset/main.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center" data-gr-c-s-loaded="true">
+    <form class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Here's your Zoom Roulette ID</h1>
+	  <pre class="h4 text-secondary" id="id"> </pre>
+	  <br/>
+      <button class="btn btn-lg btn-primary btn-block" onclick="launch()">Take me there!</button>
+	  <button class="btn btn-link btn-block" onclick="refresh()">This didn't work, give me a new one.</button>
+    </form>
+</body>
+<script>
+	const id = Math.floor(Math.random() * 1000000000);
+	console.log(id);
+	document.getElementById("id").innerHTML = id
+	function launch(){
+		window.open("https://zoom.us/j/"+id)
+	}
+	function refresh(){
+		
+	}
+</script>
+</html>
