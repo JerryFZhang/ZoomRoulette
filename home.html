@@ -21,7 +21,8 @@
 <body class="text-center" data-gr-c-s-loaded="true">
   <form class="form-signin">
     <h1 class="h3 mb-3 font-weight-normal">Here's your Zoom Roulette ID</h1>
-    <pre class="h4 text-secondary" id="id"> </pre>
+    <code class="text-monospace mb-2 text-secondary lead" id="id"> </code>
+    <br />
     <br />
     <button class="btn btn-lg btn-primary btn-block" onclick="launch()">Take me there!</button>
     <button class="btn btn-link btn-block" onclick="refresh()">This didn't work, give me a new one.</button>
@@ -30,11 +31,21 @@
   </form>
 </body>
 <script>
-  const id = Math.floor(Math.random() * 1000000000);
+  var id = `${Math.floor(100000000 + Math.random() * 900000000)}`;
+  if (id.length != 9) {
+    id = leftZeroPadding(id, id.length);
+  }
   console.log(id);
-  document.getElementById("id").innerHTML = id
+  document.getElementById("id").innerHTML = id;
   function launch() {
-    window.open("https://zoom.us/j/" + id)
+    window.open("https://zoom.us/j/" + id);
+  }
+  function leftZeroPadding(number, length) {
+    var str = '' + number;
+    while (str.length < length) {
+      str = '0' + str;
+    }
+    return str;
   }
 </script>
 
